@@ -1,1 +1,1 @@
-I'm creating ChessGame for my practise and my development
+I'm creating ChessGame for my practise and my development with C#
