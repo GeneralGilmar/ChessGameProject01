@@ -18,6 +18,11 @@ namespace tabuleiro
             Coluna = coluna;
         }
 
+        public void DefenirValores(int linha, int coluna)
+        {
+            Linha = linha;
+            Coluna = coluna;
+        }
         public override string? ToString()
         {
             return Linha+", "+Coluna;

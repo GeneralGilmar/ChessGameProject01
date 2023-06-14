@@ -46,7 +46,7 @@ namespace tabuleiro
             }
 
             Pecas[pos.Linha, pos.Coluna] = p;
-           // p.Posicao = pos;
+             p.Posicao = pos;
 
         }
         
@@ -66,7 +66,7 @@ namespace tabuleiro
 
        public bool PosicaoValida(Posicao pos)
         {
-            if(pos.Linha>=Linhas || pos.Linha<0 || pos.Coluna>Colunas || pos.Coluna<0)
+            if(pos.Linha>=Linhas || pos.Linha<0 || pos.Coluna>=Colunas || pos.Coluna<0)
             {
                 return false;
             }

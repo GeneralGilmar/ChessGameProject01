@@ -19,6 +19,12 @@ try
 
         Console.WriteLine("Origem: ");
         Posicao origem = Tela.LerPosicao().ToPosicao();
+
+
+        bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
+        Console.Clear();
+        Tela.ImprimirTabuleiro(partida.tab,posicoesPossiveis);
+
         Console.WriteLine("Destino");
         Posicao destino = Tela.LerPosicao().ToPosicao();
 
