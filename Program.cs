@@ -12,24 +12,33 @@ try
 
     while (!partida.Terminada)
     {
-        Console.Clear();
-        Tela.ImprimirTabuleiro(partida.tab);
 
+        try
+        {
+            Console.Clear();
+            Tela.ImprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            Console.WriteLine("Turno:" + partida.Turno);
+            Console.WriteLine("Aguradando a jogada: " + partida.JogadorAtual);
 
+            Console.WriteLine("Origem: ");
+            Posicao origem = Tela.LerPosicao().ToPosicao();
+            partida.ValidarPosicaoDeOrigem(origem);
 
-        Console.WriteLine("Origem: ");
-        Posicao origem = Tela.LerPosicao().ToPosicao();
+            bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
+            Console.Clear();
+            Tela.ImprimirTabuleiro(partida.tab, posicoesPossiveis);
 
+            Console.WriteLine("Destino");
+            Posicao destino = Tela.LerPosicao().ToPosicao();
+            partida.ValidarPosicaoDeDestino(origem, destino);
 
-        bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
-        Console.Clear();
-        Tela.ImprimirTabuleiro(partida.tab,posicoesPossiveis);
-
-        Console.WriteLine("Destino");
-        Posicao destino = Tela.LerPosicao().ToPosicao();
-
-        partida.ExecutaMovimento(origem, destino);
-
+            partida.RealizarMovimento(origem, destino);
+        }catch(TabuleiroException e)
+        {
+            Console.WriteLine(e.Message);
+            Console.ReadLine();
+        }
 
     }
 
