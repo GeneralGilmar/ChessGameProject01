@@ -16,15 +16,11 @@ try
         try
         {
             Console.Clear();
-            Tela.ImprimirTabuleiro(partida.tab);
-            Console.WriteLine();
-            Console.WriteLine("Turno:" + partida.Turno);
-            Console.WriteLine("Aguradando a jogada: " + partida.JogadorAtual);
+            Tela.ImorimirPartida(partida);
 
             Console.WriteLine("Origem: ");
             Posicao origem = Tela.LerPosicao().ToPosicao();
             partida.ValidarPosicaoDeOrigem(origem);
-
             bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
             Console.Clear();
             Tela.ImprimirTabuleiro(partida.tab, posicoesPossiveis);
